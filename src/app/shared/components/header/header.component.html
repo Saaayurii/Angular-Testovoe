@@ -1,0 +1,23 @@
+<header>
+  <div class="flex-container">
+    <h1>{{ 'TITLE' | transloco }}</h1>
+
+    <div class="button-label">
+      <mat-button-toggle-group
+        [(ngModel)]="activeLink"
+        (change)="navigate(activeLink)"
+        aria-label="Выбор ссылки"
+      >
+        <mat-button-toggle value="">{{ 'BUTTON.HOME' | transloco }}</mat-button-toggle>
+        <mat-button-toggle value="viewer">{{ 'BUTTON.VIEW' | transloco }}</mat-button-toggle>
+        <mat-button-toggle value="editor">{{ 'BUTTON.EDIT' | transloco }}</mat-button-toggle>
+      </mat-button-toggle-group>
+
+      <div class="container-language">
+        <button mat-button (click)="changeLanguage('ru')">{{ 'BUTTON.RUSSIAN' | transloco }}</button>
+        |
+        <button mat-button (click)="changeLanguage('en')">{{ 'BUTTON.ENGLISH' | transloco }}</button>
+      </div>
+    </div>
+  </div>
+</header>

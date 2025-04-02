@@ -1,0 +1,28 @@
+section {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.container-button{
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+button {
+  &.add-btn {
+    background-color: rgb(36, 36, 187);
+    color: white;
+  }
+
+  &.delete-btn {
+    background-color: rgb(122, 12, 12);
+    color: white;
+  }
+}

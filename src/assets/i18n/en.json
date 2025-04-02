@@ -1,0 +1,44 @@
+{
+    "TITLE": "Test Task",
+    "BUTTON": {
+      "HOME": "Home",
+      "VIEW": "View",
+      "EDIT": "Edit",
+      "ENGLISH": "EN",
+      "RUSSIAN": "RU"
+    },
+    "TITLE_HOME": "Home page",
+    "HOME_DESCRIPTION": "My github profile",
+    "VIEW":{
+        "TITLE_VIEW": "All products",
+        "BUTTON": "Edit",
+        "TITLE_PRODUCTS": "Title",
+        "CREATION": "Date and time of creation",
+        "EXECUTION": "Date and time of execution",
+        "MOVE": "Move"
+    },
+    "dialog": {
+    "title": "Dialog Title",
+    "searchTask": "Find task by ID and name",
+    "id": "ID",
+    "name": "Name",
+    "findTask": "Find Task",
+    "taskFound": "Task found! Delete?",
+    "cancel": "Cancel",
+    "confirmButtonText": "Confirm",
+    "description": "Description",
+    "dueDate": "Due Date",
+    "dueTime": "Due Time"
+  },
+    "EDITOR":{
+        "TITLE_EDITOR": "Edit products",
+        "BUTTON_ADD": "ADD",
+        "BUTTON_COPY": "COPY",
+        "BUTTON_DELETE": "DELETE"
+    },
+    "FOOTER":{
+        "WORK": "Made by",
+        "NAME": "Roman"
+    }
+  }
+  

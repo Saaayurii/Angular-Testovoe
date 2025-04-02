@@ -1,0 +1,44 @@
+{
+    "TITLE": "Тестовое задание",
+    "BUTTON": {
+      "HOME": "Главная",
+      "VIEW": "Посмотреть",
+      "EDIT": "Редактировать",
+      "ENGLISH": "EN",
+      "RUSSIAN": "RU"
+    },
+    "TITLE_HOME": "Главная страница",
+    "HOME_DESCRIPTION": "Мой гитхаб профиль",
+    "VIEW":{
+        "TITLE_VIEW": "Вся продукция",
+        "BUTTON": "Редактировать",
+        "TITLE_PRODUCTS": "Наименование",
+        "CREATION": "Дата и время создания",
+        "EXECUTION": "Дата и время выполнения",
+        "MOVE": "Переместить"
+    },
+    "dialog": {
+    "title": "Заголовок диалога",
+    "searchTask": "Найти задачу по ID и наименованию",
+    "id": "ID",
+    "name": "Наименование",
+    "findTask": "Найти задачу",
+    "taskFound": "Задача найдена! Удалить?",
+    "cancel": "Отмена",
+    "confirmButtonText": "Подтвердить",
+    "description": "Описание",
+    "dueDate": "Дата выполнения",
+    "dueTime": "Время выполнения"
+  },
+    "EDITOR":{
+        "TITLE_EDITOR": "Редактировать продукцию",
+        "BUTTON_ADD": "Добавить",
+        "BUTTON_COPY": "Копировать",
+        "BUTTON_DELETE": "Удалить"
+    },
+    "FOOTER":{
+        "WORK": "Сделал",
+        "NAME": "Роман"
+    }
+  }
+  

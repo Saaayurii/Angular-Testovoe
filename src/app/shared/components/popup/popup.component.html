@@ -1,0 +1,131 @@
+<h2 mat-dialog-title>{{ data.title }}</h2>
+
+<form #taskForm="ngForm" (ngSubmit)="confirmAction()">
+  <mat-dialog-content>
+    <div *ngIf="data.type === 'delete' || data.type === 'copy'">
+      <div class="task-search-section">
+        <h3>{{ 'dialog.searchTask' | transloco }}</h3>
+        
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>{{ 'dialog.id' | transloco }}</mat-label>
+          <input 
+            matInput 
+            [(ngModel)]="data.form.id" 
+            name="id"
+            type="number"
+            required>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>{{ 'dialog.name' | transloco }}</mat-label>
+          <input 
+            matInput 
+            [(ngModel)]="data.form.title" 
+            name="title"
+            required
+            maxlength="100">
+        </mat-form-field>
+        
+        <div *ngIf="validationErrors.id" class="mat-error">
+          {{ validationErrors.id }}
+        </div>
+        
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>{{ 'dialog.selectFromList' | transloco }}</mat-label>
+          <mat-select [(ngModel)]="selectedTask" (selectionChange)="onTaskSelect($event)" name="taskSelect">
+            <mat-option *ngFor="let task of data.tasks" [value]="task">
+              ID: {{ task.id }} - {{ task.title }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        
+        <button type="button" mat-raised-button color="primary" (click)="findTask()">{{ 'dialog.findTask' | transloco }}</button>
+        
+        <div *ngIf="taskExists" class="task-found-message">
+          {{ 'dialog.taskFound' | transloco }}
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="data.type !== 'delete' && data.type !== 'copy'">
+      <mat-form-field *ngIf="data.type === 'view'" appearance="fill" class="full-width">
+        <mat-label>{{ 'dialog.id' | transloco }}</mat-label>
+        <input 
+          matInput 
+          [(ngModel)]="data.form.id" 
+          name="id"
+          disabled>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>{{ 'dialog.name' | transloco }}</mat-label>
+        <input 
+          matInput 
+          [(ngModel)]="data.form.title" 
+          name="title" 
+          required
+          [disabled]="data.type === 'view'"
+          maxlength="100">
+        <mat-error *ngIf="submitted && validationErrors.title">
+          {{ validationErrors.title }}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field *ngIf="data.type === 'view' || data.type === 'add'" appearance="fill" class="full-width">
+        <mat-label>{{ 'dialog.description' | transloco }}</mat-label>
+        <textarea 
+          matInput 
+          [(ngModel)]="data.form.description" 
+          name="description"
+          [disabled]="data.type === 'view'"
+          maxlength="500"
+          rows="4"></textarea>
+        <mat-error *ngIf="submitted && validationErrors.description">
+          {{ validationErrors.description }}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field *ngIf="data.type === 'view' || data.type === 'add'" appearance="fill" class="full-width">
+        <mat-label>{{ 'dialog.dueDate' | transloco }}</mat-label>
+        <input 
+          matInput 
+          [matDatepicker]="picker" 
+          [(ngModel)]="data.form.dueDate" 
+          name="dueDate"
+          [disabled]="data.type === 'view'"
+          required>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="submitted && validationErrors.dueDate">
+          {{ validationErrors.dueDate }}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field *ngIf="data.type === 'view' || data.type === 'add'" appearance="fill" class="full-width">
+        <mat-label>{{ 'dialog.dueTime' | transloco }}</mat-label>
+        <input 
+          matInput 
+          [(ngModel)]="data.form.dueTime" 
+          name="dueTime"
+          [disabled]="data.type === 'view'"
+          type="time"
+          required>
+        <mat-error *ngIf="submitted && validationErrors.dueTime">
+          {{ validationErrors.dueTime }}
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </mat-dialog-content>
+  
+  <mat-dialog-actions align="end">
+    <button mat-button type="button" (click)="closeDialog()">{{ 'dialog.cancel' | transloco }}</button>
+    <button
+      *ngIf="data.confirmButtonText" 
+      mat-raised-button 
+      color="primary" 
+      type="submit"
+      [disabled]="(data.type === 'delete' || data.type === 'copy') && !taskExists">
+      {{ data.confirmButtonText }}
+    </button>
+  </mat-dialog-actions>
+</form>

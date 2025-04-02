@@ -1,0 +1,12 @@
+<app-header></app-header>
+
+<section>
+  <div class="container"><h1>{{'EDITOR.TITLE_EDITOR'| transloco}}</h1></div>
+  <div class="container-button">
+    <button mat-flat-button class="add-btn" (click)="openPopup('add')">{{'EDITOR.BUTTON_ADD'| transloco}}</button>
+    <button mat-flat-button (click)="openPopup('copy')">{{'EDITOR.BUTTON_COPY'| transloco}}</button>
+    <button mat-flat-button class="delete-btn" (click)="openPopup('delete')">{{'EDITOR.BUTTON_DELETE'| transloco}}</button>
+  </div>
+</section>
+
+<app-footer></app-footer>
